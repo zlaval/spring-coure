@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="28.0.3">
+  <diagram name="1 oldal" id="wJh_2z4kOl6-80J7OGvX">
+    <mxGraphModel dx="2066" dy="2306" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="d_6R1_KlWnTD7H4Sw1WR-10" value="" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="480" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="d_6R1_KlWnTD7H4Sw1WR-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Megjelenítés&lt;br&gt;(Vaadin)&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="120" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d_6R1_KlWnTD7H4Sw1WR-2" value="&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Üzleti logika&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="280" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d_6R1_KlWnTD7H4Sw1WR-3" value="&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Adatkapcsolat&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="440" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d_6R1_KlWnTD7H4Sw1WR-4" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="d_6R1_KlWnTD7H4Sw1WR-1" target="d_6R1_KlWnTD7H4Sw1WR-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="600" as="sourcePoint" />
+            <mxPoint x="440" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d_6R1_KlWnTD7H4Sw1WR-5" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="359.5" y="360" as="sourcePoint" />
+            <mxPoint x="359.5" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d_6R1_KlWnTD7H4Sw1WR-7" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b&gt;Adatbázis &lt;/b&gt;&lt;br&gt;(H2)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="295" y="600" width="130" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="d_6R1_KlWnTD7H4Sw1WR-8" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="359.5" y="520" as="sourcePoint" />
+            <mxPoint x="359.5" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d_6R1_KlWnTD7H4Sw1WR-9" value="Felhasználó" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="345" y="-60" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d_6R1_KlWnTD7H4Sw1WR-12" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="d_6R1_KlWnTD7H4Sw1WR-9" target="d_6R1_KlWnTD7H4Sw1WR-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="490" as="sourcePoint" />
+            <mxPoint x="440" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

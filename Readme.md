@@ -206,3 +206,9 @@
 - Spring - Boot nélkül
   - Alkalmazás rétegek elkészítése 
   - DispatcherServlet
+
+
+
+# Linkek
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
