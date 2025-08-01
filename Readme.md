@@ -36,12 +36,16 @@
 
 #### Restful
 - Http Igék - Get,Post, Delete, Put, Patch
+- Query és Path paramok
 - Adat validáció
 - Hibakezelés - lokális, globális
 - Web filterek
 - Api tervezés és OpenApi dokumentáció
 - JSON szűrés - JsonView, JsonBackReference, JsonIgnore
 - Objektum mappelés (mapstruct)
+- RQL, szűrés, lapozás, sorrend
+- BFF, több erőforrás betöltése
+
 
 #### Spring Data (JPA)
 - Entity alapok
@@ -211,4 +215,5 @@
 
 # Linkek
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [Vaadin](https://vaadin.com/docs/latest/flow)
 
