@@ -48,6 +48,7 @@
 
 
 #### Spring Data (JPA)
+- DB/JDBC Alapok
 - Entity alapok
   - Annotációk
     - Mezők (Column, Transient, CreatedDate…)
@@ -57,6 +58,7 @@
   - Kapcsolatok (1-1, 1-N, N-N), uni/bidirectional
   - Öröklődés - közös mezők
   - Entity gráf lekérdezés
+- Entity Manager + factory
 - Interface alapú lekérdezések - findBy*
   - Szabályok
   - Lapozás és rendezés

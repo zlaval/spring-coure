@@ -16,8 +16,10 @@ spring:
     console:
       enabled: true
       path: /h2-console
+  main:
+    banner-mode: off
 logging:
   level:
-    root: info
+    root: off
 server:
   shutdown: graceful

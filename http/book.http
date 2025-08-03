@@ -1,0 +1,16 @@
+### GET Books
+GET localhost:8080/v1/books
+
+### Create Books
+POST localhost:8080/v1/books
+Content-Type: application/json
+
+{
+    "title" : "Spring In Action",
+    "author" : "Craig Walls",
+    "publisher" : "Manning",
+    "pages" : 520,
+    "genre" : "OTHER",
+    "publishedAt" : "2018-10-12T12:00:00Z",
+    "available" : true
+}

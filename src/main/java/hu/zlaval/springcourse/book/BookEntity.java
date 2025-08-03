@@ -27,6 +27,8 @@ public class BookEntity {
 
     private Integer pages;
 
+    private Integer price;
+
     @Enumerated(EnumType.STRING)
     private Genre genre;
 
