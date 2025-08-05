@@ -35,9 +35,11 @@
 - PostConstruct, PreDestroy
 
 #### Restful
+- Server alapok (tomcat/jetty..,dispatcher, frontcontroller, mvc, thread/request )
 - Http Igék - Get,Post, Delete, Put, Patch
 - Query és Path paramok
 - Adat validáció
+- Header, Status 
 - Hibakezelés - lokális, globális
 - Web filterek
 - Api tervezés és OpenApi dokumentáció
