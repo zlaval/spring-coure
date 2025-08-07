@@ -1,5 +1,6 @@
 package hu.zlaval.springcourse.user;
 
+import hu.zlaval.springcourse.user.request.GetUsersParam;
 import hu.zlaval.springcourse.user.request.UserPatchRequest;
 import hu.zlaval.springcourse.user.request.UserRequest;
 import jakarta.validation.Valid;
@@ -17,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-@RequestMapping("/v1/user")
+@RequestMapping("/v1/users")
 public class UserController {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -26,15 +27,16 @@ public class UserController {
 
     @GetMapping
     public Collection<UserEntity> users(
-            @RequestParam(name = "email", required = false) String email
+            //@RequestParam(name = "email", required = false) String email
+            GetUsersParam param
     ) {
         var records = users.values();
-        if (email != null) {
+        if (param.getEmail() != null) {
             records = records.stream()
-                    .filter(r -> r.getEmail().contains(email))
+                    .filter(r -> r.getEmail().contains(param.getEmail()))
                     .toList();
-
         }
+
         return records;
     }
 
