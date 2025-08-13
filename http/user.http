@@ -1,5 +1,9 @@
 ### Get Users
-GET localhost:8080/v1/users?email=spring&page=2&size=10&filter=1&filter=2
+GET localhost:8080/v1/users
+
+### Get User
+GET localhost:8080/v1/users/3
+
 
 ### Create Users
 POST localhost:8080/v1/users

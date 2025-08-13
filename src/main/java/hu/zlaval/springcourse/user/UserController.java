@@ -1,5 +1,6 @@
 package hu.zlaval.springcourse.user;
 
+import hu.zlaval.springcourse.configuration.exceptions.UserNotFoundException;
 import hu.zlaval.springcourse.user.request.GetUsersParam;
 import hu.zlaval.springcourse.user.request.UserPatchRequest;
 import hu.zlaval.springcourse.user.request.UserRequest;
@@ -25,6 +26,9 @@ public class UserController {
     private final AtomicLong sequence = new AtomicLong(1);
     private final Map<Long, UserEntity> users = new ConcurrentHashMap<>();
 
+    //Régen stacktrace, manapság már nem enged ki a legtöbb keretrendszer
+
+
     @GetMapping
     public Collection<UserEntity> users(
             //@RequestParam(name = "email", required = false) String email
@@ -38,6 +42,18 @@ public class UserController {
         }
 
         return records;
+    }
+
+    @GetMapping("/{id}")
+    public UserEntity user(
+            @PathVariable Long id
+    ) {
+        var user = users.get(id);
+
+        if (user == null) {
+            throw new UserNotFoundException("user not found");
+        }
+        return user;
     }
 
     @PostMapping
