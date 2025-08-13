@@ -20,11 +20,11 @@ public class UserRequest {
     @Email
     private String email;
 
-    @Size(min = 6, max = 42)
+    //@Size(min = 6, max = 42)
     @ValidPassword
     private String password;
 
-    @Size(min = 6, max = 42)
+    //@Size(min = 6, max = 42)
     @ValidPassword
     private String confirmPassword;
 

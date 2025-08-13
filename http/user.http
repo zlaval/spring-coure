@@ -8,7 +8,7 @@ Content-Type: application/json
 {
   "email": "test@valami.hu",
   "password": "1234567",
-  "confirmPassword": "1234568",
+  "confirmPassword": "1234567",
   "age": 140,
   "phones": [
     {

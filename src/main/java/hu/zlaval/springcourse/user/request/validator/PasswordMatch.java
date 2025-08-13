@@ -12,7 +12,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PasswordMatch {
-    String message = "{validation.password.not.match}";
+    String message() default "{validation.password.not.match}";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }
