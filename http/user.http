@@ -1,0 +1,44 @@
+### Get Users
+GET localhost:8080/v1/users?email=spring&page=2&size=10&filter=1&filter=2
+
+### Create Users
+POST localhost:8080/v1/users
+Content-Type: application/json
+
+{
+  "email": "test@valami.hu",
+  "password": "1234567",
+  "confirmPassword": "1234568",
+  "age": 140,
+  "phones": [
+    {
+      "phoneNumber": "234789"
+    },
+    {
+      "phoneNumber": "789654"
+    }
+  ]
+}
+
+### Update User email
+PATCH localhost:8080/v1/users/2/email
+Content-Type: application/json
+
+{
+  "email" : "patchedmail@gmail.com"
+}
+
+
+### Update User
+PUT localhost:8080/v1/users/3
+Content-Type: application/json
+
+{
+  "email" : "springcourse3@gmail.com",
+  "password" : "1234567",
+  "confirmPassword" : "1234567"
+}
+
+
+### Delete User
+DELETE localhost:8080/v1/users/3
