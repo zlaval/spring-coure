@@ -17,14 +17,46 @@ import java.util.AbstractMap;
 @RestControllerAdvice
 public class GlobalErrorHandler {
 
+    @ExceptionHandler(BindException.class)
+    public ResponseEntity<ProblemDetail> handleAllErrors(BindException e) {
+        var pd = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
+        pd.setTitle("Validation Error");
+        pd.setDetail("Invalid Fields");
+        pd.setType(URI.create("/spring-course"));
+
+        var errors = e.getBindingResult().getAllErrors()
+                .stream()
+                .map(entry -> {
+                            var message = entry.getDefaultMessage();
+                            var code = entry.getCode();
+                            if (entry.contains(ConstraintViolation.class)) {
+                                var cv = entry.unwrap(ConstraintViolation.class);
+                                var p = cv.getPropertyPath().toString();
+                                if (!p.isBlank()) {
+                                    code = p;
+                                }
+
+                            }
+
+                            return new AbstractMap.SimpleEntry<>(code, message);
+                        }
+                );
+
+        pd.setProperty("invalid_fields", errors);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(pd);
+    }
+
+
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ProblemDetail> handleNotFoundErrors(NotFoundException e) {
+    public ResponseEntity<ProblemDetail> handleAllErrors(NotFoundException e) {
         var pd = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
-        pd.setTitle("Item does not exist");
+        pd.setTitle("Record Not Found");
         pd.setDetail(e.getMessage());
         pd.setType(URI.create("/spring-course"));
-        return ResponseEntity.internalServerError().body(pd);
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(pd);
     }
+
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ProblemDetail> handleAllErrors(Exception e) {
@@ -32,34 +64,8 @@ public class GlobalErrorHandler {
         pd.setTitle("Something went wrong");
         pd.setDetail("Something went wrong");
         pd.setType(URI.create("/spring-course"));
+
         return ResponseEntity.internalServerError().body(pd);
-    }
-
-
-    @ExceptionHandler(BindException.class)
-    public ResponseEntity<ProblemDetail> handleValidationError(BindException error) {
-        var problemDetail = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
-        problemDetail.setTitle("Validation error");
-        problemDetail.setDetail("Fields are invalid");
-        problemDetail.setType(URI.create("/spring-course"));
-        var errors = error.getBindingResult().getAllErrors()
-                .stream().map(entry -> {
-                            var message = entry.getDefaultMessage();
-                            String property = entry.getCode();
-                            if (entry.contains(ConstraintViolation.class)) {
-                                var cv = entry.unwrap(ConstraintViolation.class);
-                                var f = cv.getPropertyPath().toString();
-                                if (!f.isBlank()) {
-                                    property = f;
-                                }
-                            }
-                            return new AbstractMap.SimpleEntry<>(property, message);
-                        }
-                );
-
-        problemDetail.setProperty("invalid_fields", errors);
-
-        return ResponseEntity.badRequest().body(problemDetail);
     }
 
 }

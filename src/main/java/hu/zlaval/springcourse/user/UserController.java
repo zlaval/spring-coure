@@ -43,15 +43,14 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserEntity user(
+    public ResponseEntity<Void> getUser(
             @PathVariable Long id
     ) {
         var user = users.get(id);
-
         if (user == null) {
-            throw new NotFoundException("user not found");
+            throw new NotFoundException("User not found by id " + id);
         }
-        return user;
+        return ResponseEntity.noContent().build();
     }
 
     @PostMapping
