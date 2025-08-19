@@ -9,13 +9,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.net.URI;
 import java.util.AbstractMap;
 
 //@ControllerAdvice
 @RestControllerAdvice
-public class GlobalErrorHandler {
+public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(BindException.class)
     public ResponseEntity<ProblemDetail> handleAllErrors(BindException e) {
@@ -59,13 +61,16 @@ public class GlobalErrorHandler {
 
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ProblemDetail> handleAllErrors(Exception e) {
-        var pd = ProblemDetail.forStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-        pd.setTitle("Something went wrong");
-        pd.setDetail("Something went wrong");
-        pd.setType(URI.create("/spring-course"));
-
-        return ResponseEntity.internalServerError().body(pd);
+    public ResponseEntity<Object> handleAllErrors(Exception e, WebRequest request) throws Exception {
+        try {
+            return super.handleException(e, request);
+        } catch (Exception ex) {
+            var pd = ProblemDetail.forStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+            pd.setTitle("Something went wrong");
+            pd.setDetail("Something went wrong");
+            pd.setType(URI.create("/spring-course"));
+            return ResponseEntity.internalServerError().body(pd);
+        }
     }
 
 }

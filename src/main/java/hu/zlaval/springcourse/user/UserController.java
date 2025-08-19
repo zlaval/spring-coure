@@ -7,11 +7,14 @@ import hu.zlaval.springcourse.user.request.UserRequest;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.util.Collection;
 import java.util.Map;
@@ -45,10 +48,13 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<Void> getUser(
             @PathVariable Long id
-    ) {
+    ) throws NoResourceFoundException
+    {
         var user = users.get(id);
         if (user == null) {
+            //throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found by id " + id);
             throw new NotFoundException("User not found by id " + id);
+            //throw new NoResourceFoundException(HttpMethod.GET, "User not found by id " + id);
         }
         return ResponseEntity.noContent().build();
     }

@@ -1,9 +1,6 @@
 ### Get Users
 GET localhost:8080/v1/users
 
-### Get User
-GET localhost:8080/v1/users/3
-
 ### Get User by id
 GET localhost:8080/v1/users/3
 
