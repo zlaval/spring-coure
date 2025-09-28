@@ -16,7 +16,7 @@ import java.net.URI;
 import java.util.AbstractMap;
 
 //@ControllerAdvice
-@RestControllerAdvice
+//@RestControllerAdvice
 public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(BindException.class)

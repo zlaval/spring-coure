@@ -12,6 +12,20 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "customers")
+@NamedEntityGraphs(
+        value = {
+                @NamedEntityGraph(
+                        name = "Customer.orders",
+                        attributeNodes = {
+                                @NamedAttributeNode("orders")
+                        }
+                ),
+                @NamedEntityGraph(
+                        name = "Customer.noJoin"
+                ),
+        }
+)
+//@SQLRestriction("reseller = 'Y'")
 public class CustomerEntity extends BaseEntity {
 
     @Basic(optional = false)
@@ -25,7 +39,8 @@ public class CustomerEntity extends BaseEntity {
     @JoinColumn(name = "phone_id")
     private PhoneEntity phone;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    //Explain: Lazy, Eager, Lazy out of transaction,
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)// fetch = FetchType.EAGER
     //remove record from this list removes it from db
     private List<OrderEntity> orders;
 

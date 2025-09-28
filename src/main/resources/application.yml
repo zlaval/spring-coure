@@ -21,6 +21,6 @@ spring:
     allow-circular-references: true
 logging:
   level:
-    root: info
+    root: debug
 server:
   shutdown: graceful

@@ -19,7 +19,8 @@ public class OrderEntity extends BaseEntity {
     @JoinColumn(name = "customer_id")
     private CustomerEntity customer;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})//, fetch = FetchType.EAGER
+    //Explain: what happen if we remove cascade but not save the product before save this order
     @JoinTable(name = "order_products_jt",
             joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id")
