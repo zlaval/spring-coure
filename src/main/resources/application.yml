@@ -3,7 +3,7 @@ vaadin:
 spring:
   application.name: Spring Course
   jpa:
-    show-sql: false
+    show-sql: true
     open-in-view: false
     hibernate:
       ddl-auto: create
@@ -21,6 +21,8 @@ spring:
     allow-circular-references: true
 logging:
   level:
-    root: debug
+    root: info
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql: trace
 server:
   shutdown: graceful
